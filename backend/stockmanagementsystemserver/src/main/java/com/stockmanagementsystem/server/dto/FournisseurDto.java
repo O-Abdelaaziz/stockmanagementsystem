@@ -1,5 +1,6 @@
 package com.stockmanagementsystem.server.dto;
 
+import com.stockmanagementsystem.server.models.Fournisseur;
 import lombok.Builder;
 import lombok.Data;
 
@@ -22,4 +23,33 @@ public class FournisseurDto {
     private String mail;
     private AdresseDto addressDto;
     private List<CommandeFournisseurDto> commandeFournisseurDtoList;
+
+    public static FournisseurDto fromEntity(Fournisseur fournisseur) {
+        if (fournisseur == null) {
+            return null;
+        }
+        return FournisseurDto.builder()
+                .id(fournisseur.getId())
+                .nom(fournisseur.getNom())
+                .prenom(fournisseur.getPrenom())
+                .addressDto(AdresseDto.fromEntity(fournisseur.getAddress()))
+                .photo(fournisseur.getPhoto())
+                .mail(fournisseur.getMail())
+                .build();
+    }
+
+    public static Fournisseur toEntity(FournisseurDto fournisseurDto) {
+        if (fournisseurDto == null) {
+            return null;
+        }
+        Fournisseur fournisseur = new Fournisseur();
+        fournisseur.setId(fournisseurDto.getId());
+        fournisseur.setNom(fournisseurDto.getNom());
+        fournisseur.setPrenom(fournisseurDto.getPrenom());
+        fournisseur.setAddress(AdresseDto.toEntity(fournisseurDto.getAddressDto()));
+        fournisseur.setPhoto(fournisseurDto.getPhoto());
+        fournisseur.setMail(fournisseurDto.getMail());
+
+        return fournisseur;
+    }
 }
