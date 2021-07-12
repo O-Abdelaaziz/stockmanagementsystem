@@ -1,9 +1,7 @@
 package com.stockmanagementsystem.server.models;
 
 import com.stockmanagementsystem.server.models.common.AbstractEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,6 +14,8 @@ import java.util.List;
  * @Author Abdelaaziz Ouakala
  **/
 @Data
+@EqualsAndHashCode(callSuper = true)
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

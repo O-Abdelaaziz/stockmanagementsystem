@@ -1,9 +1,7 @@
 package com.stockmanagementsystem.server.models;
 
 import com.stockmanagementsystem.server.models.common.AbstractEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -19,6 +17,7 @@ import java.io.Serializable;
  * @Author Abdelaaziz Ouakala
  **/
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
