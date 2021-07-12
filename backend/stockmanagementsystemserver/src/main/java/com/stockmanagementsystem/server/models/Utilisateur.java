@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @Created 12/07/2021 - 09:09
@@ -21,4 +20,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "utilisateur",schema = "public")
 public class Utilisateur extends AbstractEntity {
+
+    @Column(name = "nom")
+    private String nom;
+
+    @Column(name = "prenom")
+    private String prenom;
+
+    @Column(name = "email")
+    private String email;
+    
+    @Column(name = "mote_de_passe")
+    private String moteDePasse;
+
+    @Embedded
+    private Adresse adresse;
+
+    @Column(name = "photo")
+    private String photo;
+
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "enterprise_id")
+    private Enterprise enterprise;
 }
