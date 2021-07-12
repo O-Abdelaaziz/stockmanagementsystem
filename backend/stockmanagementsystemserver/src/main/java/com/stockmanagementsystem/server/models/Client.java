@@ -38,5 +38,5 @@ public class Client extends AbstractEntity {
     private Adresse address;
 
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,orphanRemoval = true)
-    private List<LigneCommandeClient> ligneCommandeClients;
+    private List<CommandeClient> commandeClientList;
 }

@@ -22,6 +22,12 @@ import java.math.BigDecimal;
 @Table(name = "Lignes_commandes_clients",schema = "public")
 public class LigneCommandeClient extends AbstractEntity {
 
+    @Column(name = "quantite")
+    private BigDecimal quantite;
+
+    @Column(name = "prix_unitaire")
+    private BigDecimal prixUnitaire;
+
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "article_id")
     private Article article;
@@ -29,10 +35,4 @@ public class LigneCommandeClient extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "commande_client_id")
     private CommandeClient commandeClient;
-
-    @Column(name = "quantite")
-    private BigDecimal quantite;
-
-    @Column(name = "prix_unitaire")
-    private BigDecimal prixUnitaire;
 }

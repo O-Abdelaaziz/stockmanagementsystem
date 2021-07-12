@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * @Created 12/07/2021 - 09:55
@@ -21,9 +22,9 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-@Entity
-@Table(name = "adresses",schema = "public")
-public class Adresse extends AbstractEntity {
+//@Entity
+//@Table(name = "adresses",schema = "public")
+public class Adresse implements Serializable {
 
     @Column(name = "country")
     private String country;

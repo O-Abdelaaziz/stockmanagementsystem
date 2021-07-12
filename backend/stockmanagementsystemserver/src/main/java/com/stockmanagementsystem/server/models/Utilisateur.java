@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +30,9 @@ public class Utilisateur extends AbstractEntity {
     @Column(name = "prenom")
     private String prenom;
 
+    @Column(name = "date_de_naissance")
+    private Date dateDeNaissance;
+
     @Column(name = "email")
     private String email;
 
@@ -45,6 +49,6 @@ public class Utilisateur extends AbstractEntity {
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
     private List<Roles> roles;
 }

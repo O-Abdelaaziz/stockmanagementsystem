@@ -24,7 +24,7 @@ public class Roles extends AbstractEntity {
     @Column(name = "rolename")
     private String roleName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
 }

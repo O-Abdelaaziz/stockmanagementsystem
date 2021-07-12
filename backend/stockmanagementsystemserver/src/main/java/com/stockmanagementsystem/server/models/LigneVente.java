@@ -22,13 +22,13 @@ import java.math.BigDecimal;
 @Table(name = "Lignes_ventes",schema = "public")
 public class LigneVente extends AbstractEntity {
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name = "ventes_id")
-    private Ventes ventes;
-
     @Column(name = "quantite")
     private BigDecimal quantite;
 
     @Column(name = "prix_unitaire")
     private BigDecimal prixUnitaire;
+
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "ventes_id")
+    private Ventes ventes;
 }
