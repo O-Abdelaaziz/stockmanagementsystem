@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @Created 12/07/2021 - 09:04
@@ -21,4 +20,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "fournisseurs",schema = "public")
 public class Fournisseur extends AbstractEntity {
+
+    @Column(name = "nom")
+    private String nom;
+
+    @Column(name = "prenom")
+    private String prenom;
+
+    @Column(name = "photo")
+    private String photo;
+
+    @Column(name = "mail")
+    private String mail;
+
+    @Embedded
+    private Adresse address;
 }
