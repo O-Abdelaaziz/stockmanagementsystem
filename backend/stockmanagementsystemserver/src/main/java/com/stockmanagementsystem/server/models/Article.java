@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @Created 12/07/2021 - 09:03
@@ -44,4 +45,7 @@ public class Article extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @OneToMany(mappedBy = "article",fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<LigneCommandeClient> ligneCommandeClientList;
 }
