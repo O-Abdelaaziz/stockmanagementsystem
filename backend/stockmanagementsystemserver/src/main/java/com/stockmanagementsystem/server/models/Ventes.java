@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,6 +25,12 @@ public class Ventes extends AbstractEntity {
 
     @Column(name = "code")
     private String code;
+
+    @Column(name = "date_vente")
+    private Date dateVente;
+
+    @Column(name = "commentaire")
+    private String commentaire;
 
     @OneToMany(mappedBy = "ventes",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<LigneVente> ligneVenteList;
