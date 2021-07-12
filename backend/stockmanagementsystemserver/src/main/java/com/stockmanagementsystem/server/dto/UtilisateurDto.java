@@ -44,12 +44,12 @@ public class UtilisateurDto {
                 .adresseDto(AdresseDto.fromEntity(utilisateur.getAdresse()))
                 .photo(utilisateur.getPhoto())
                 .entrepriseDto(EntrepriseDto.fromEntity(utilisateur.getEntreprise()))
-//                .rolesDtoList(
-//                        utilisateur.getRoles() != null ?
-//                                utilisateur.getRoles().stream()
-//                                        .map(RolesDto::fromEntity)
-//                                        .collect(Collectors.toList()) : null
-//                )
+                .rolesDtoList(
+                        utilisateur.getRoles() != null ?
+                                utilisateur.getRoles().stream()
+                                        .map(RolesDto::fromEntity)
+                                        .collect(Collectors.toList()) : null
+                )
                 .build();
     }
 
