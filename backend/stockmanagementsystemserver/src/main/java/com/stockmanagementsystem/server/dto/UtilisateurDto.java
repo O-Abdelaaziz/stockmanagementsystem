@@ -24,6 +24,6 @@ public class UtilisateurDto {
     private String moteDePasse;
     private String photo;
     private AdresseDto adresseDto;
-    private EnterpriseDto enterpriseDto;
+    private EntrepriseDto entrepriseDto;
     private List<RolesDto> rolesDtoList;
 }

@@ -45,7 +45,7 @@ public class Utilisateur extends AbstractEntity {
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "enterprise_id")
-    private Enterprise enterprise;
+    private Entreprise entreprise;
 
     @OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
     private List<Roles> roles;

@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "enterprises",schema = "public")
-public class Enterprise extends AbstractEntity {
+public class Entreprise extends AbstractEntity {
 
     @Column(name = "nom")
     private String nom;
