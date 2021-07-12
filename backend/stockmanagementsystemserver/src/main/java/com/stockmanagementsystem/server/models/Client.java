@@ -30,8 +30,8 @@ public class Client extends AbstractEntity {
     @Column(name = "photo")
     private String photo;
 
-    @Column(name = "mail")
-    private String mail;
+    @Column(name = "email")
+    private String email;
 
     @Embedded
     private Adresse address;
