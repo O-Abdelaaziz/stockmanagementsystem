@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @Created 12/07/2021 - 09:04
@@ -35,4 +36,7 @@ public class Fournisseur extends AbstractEntity {
 
     @Embedded
     private Adresse address;
+
+    @OneToMany(mappedBy = "fournisseur",fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<CommandeFournisseur> commandeFournisseurList;
 }

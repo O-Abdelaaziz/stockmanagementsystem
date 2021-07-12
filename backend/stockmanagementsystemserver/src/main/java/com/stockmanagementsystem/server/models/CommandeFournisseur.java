@@ -22,7 +22,7 @@ import java.util.Date;
 @Entity
 @Table(name = "commandes_fournisseurs",schema = "public")
 public class CommandeFournisseur extends AbstractEntity {
-    
+
     @Column(name = "code")
     private String code;
 
@@ -30,4 +30,8 @@ public class CommandeFournisseur extends AbstractEntity {
     @DateTimeFormat(pattern = "DD-MM-YYYY")
     @Column(name ="date_commande")
     private Date dateCommande;
+
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "fournisseur_id")
+    private Fournisseur fournisseur;
 }
