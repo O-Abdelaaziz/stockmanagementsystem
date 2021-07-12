@@ -1,5 +1,6 @@
 package com.stockmanagementsystem.server.dto;
 
+import com.stockmanagementsystem.server.models.LigneVente;
 import lombok.Builder;
 import lombok.Data;
 
@@ -19,4 +20,29 @@ public class LigneVenteDto {
     private BigDecimal quantite;
     private BigDecimal prixUnitaire;
     private VentesDto ventesDto;
+
+    public static LigneVenteDto fromEntity(LigneVente ligneVente) {
+        if (ligneVente == null) {
+            return null;
+        }
+
+        return LigneVenteDto.builder()
+                .id(ligneVente.getId())
+                .ventesDto(VentesDto.fromEntity(ligneVente.getVentes()))
+                .quantite(ligneVente.getQuantite())
+                .prixUnitaire(ligneVente.getPrixUnitaire())
+                .build();
+    }
+
+    public static LigneVente toEntity(LigneVenteDto ligneVenteDto) {
+        if (ligneVenteDto == null) {
+            return null;
+        }
+        LigneVente ligneVente = new LigneVente();
+        ligneVente.setId(ligneVenteDto.getId());
+        ligneVente.setVentes(VentesDto.toEntity(ligneVenteDto.getVentesDto()));
+        ligneVente.setQuantite(ligneVenteDto.getQuantite());
+        ligneVente.setPrixUnitaire(ligneVenteDto.getPrixUnitaire());
+        return ligneVente;
+    }
 }
