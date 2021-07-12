@@ -1,6 +1,7 @@
 package com.stockmanagementsystem.server.dto;
 
 import com.stockmanagementsystem.server.enums.MvtStockEnum;
+import com.stockmanagementsystem.server.models.MouvementDeStock;
 import lombok.Builder;
 import lombok.Data;
 
@@ -22,4 +23,32 @@ public class MouvementDeStockDto {
     private BigDecimal quantite;
     private MvtStockEnum typeMvtStock;
     private ArticleDto article;
+
+    public static MouvementDeStockDto fromEntity(MouvementDeStock mouvementDeStock) {
+        if (mouvementDeStock == null) {
+            return null;
+        }
+
+        return MouvementDeStockDto.builder()
+                .id(mouvementDeStock.getId())
+                .dateMvt(mouvementDeStock.getDateMvt())
+                .quantite(mouvementDeStock.getQuantite())
+                .article(ArticleDto.fromEntity(mouvementDeStock.getArticle()))
+                .typeMvtStock(mouvementDeStock.getTypeMvtStock())
+                .build();
+    }
+
+    public static MouvementDeStock toEntity(MouvementDeStockDto dto) {
+        if (dto == null) {
+            return null;
+        }
+
+        MouvementDeStock mvtStk = new MouvementDeStock();
+        mvtStk.setId(dto.getId());
+        mvtStk.setDateMvt(dto.getDateMvt());
+        mvtStk.setQuantite(dto.getQuantite());
+        mvtStk.setArticle(ArticleDto.toEntity(dto.getArticle()));
+        mvtStk.setTypeMvtStock(dto.getTypeMvtStock());
+        return mvtStk;
+    }
 }
