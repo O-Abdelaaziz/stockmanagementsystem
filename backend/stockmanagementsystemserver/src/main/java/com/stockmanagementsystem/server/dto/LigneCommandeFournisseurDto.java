@@ -1,5 +1,6 @@
 package com.stockmanagementsystem.server.dto;
 
+import com.stockmanagementsystem.server.models.LigneCommandeFournisseur;
 import lombok.Builder;
 import lombok.Data;
 
@@ -20,4 +21,29 @@ public class LigneCommandeFournisseurDto {
     private BigDecimal prixUnitaire;
     private ArticleDto articleDto;
     private CommandeFournisseurDto commandeFournisseurDto;
+
+    public static LigneCommandeFournisseurDto fromEntity(LigneCommandeFournisseur ligneCommandeFournisseur) {
+        if (ligneCommandeFournisseur == null) {
+            return null;
+        }
+        return LigneCommandeFournisseurDto.builder()
+                .id(ligneCommandeFournisseur.getId())
+                .articleDto(ArticleDto.fromEntity(ligneCommandeFournisseur.getArticle()))
+                .quantite(ligneCommandeFournisseur.getQuantite())
+                .prixUnitaire(ligneCommandeFournisseur.getPrixUnitaire())
+                .build();
+    }
+
+    public static LigneCommandeFournisseur toEntity(LigneCommandeFournisseurDto ligneCommandeFournisseurDto) {
+        if (ligneCommandeFournisseurDto == null) {
+            return null;
+        }
+
+        LigneCommandeFournisseur ligneCommandeFournisseur = new LigneCommandeFournisseur();
+        ligneCommandeFournisseur.setId(ligneCommandeFournisseurDto.getId());
+        ligneCommandeFournisseur.setArticle(ArticleDto.toEntity(ligneCommandeFournisseurDto.getArticleDto()));
+        ligneCommandeFournisseur.setPrixUnitaire(ligneCommandeFournisseurDto.getPrixUnitaire());
+        ligneCommandeFournisseur.setQuantite(ligneCommandeFournisseurDto.getQuantite());
+        return ligneCommandeFournisseur;
+    }
 }
