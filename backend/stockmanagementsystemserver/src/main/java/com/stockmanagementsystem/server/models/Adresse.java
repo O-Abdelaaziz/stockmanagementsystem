@@ -27,8 +27,8 @@ public class Adresse implements Serializable {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "adresse_1")
-    private String adresse1;
+    @Column(name = "adresse")
+    private String adresse;
 
     @Column(name = "ville")
     private String ville;
