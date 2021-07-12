@@ -3,10 +3,13 @@ package com.stockmanagementsystem.server.models;
 import com.stockmanagementsystem.server.models.common.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 /**
  * @Created 12/07/2021 - 09:03
@@ -21,4 +24,22 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "articles",schema = "public")
 public class Article extends AbstractEntity {
+
+    @Column(name = "code")
+    private String code;
+
+    @Column(name = "designation")
+    private String designation;
+
+    @Column(name = "prix_unitaire_ht")
+    private BigDecimal prixUnitaireHt;
+
+    @Column(name = "prix_unitaire_ttc")
+    private BigDecimal prixUnitaireTtc;
+
+    @Column(name = "taux_tva")
+    private BigDecimal tauxTva;
+
+    @Column(name = "photo")
+    private String photo;
 }
