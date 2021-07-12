@@ -4,9 +4,11 @@ import com.stockmanagementsystem.server.models.common.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @Created 12/07/2021 - 09:03
@@ -21,4 +23,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "commandes_clients",schema = "public")
 public class CommandeClient extends AbstractEntity {
+
+    @Column(name = "code")
+    private String code;
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "DD-MM-YYYY")
+    @Column(name ="date_commande")
+    private Date dateCommande;
+
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_id")
+    private Client client;
 }

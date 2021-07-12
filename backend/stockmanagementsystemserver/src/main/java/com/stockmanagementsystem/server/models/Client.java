@@ -5,9 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @Created 12/07/2021 - 09:03
@@ -35,5 +34,9 @@ public class Client extends AbstractEntity {
     @Column(name = "mail")
     private String mail;
 
-    //private Address address
+    @Embedded
+    private Adresse address;
+
+    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<LigneCommandeClient> ligneCommandeClients;
 }

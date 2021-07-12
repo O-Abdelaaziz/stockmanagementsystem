@@ -24,7 +24,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "adresses",schema = "public")
 public class Adresse extends AbstractEntity {
-    
+
     @Column(name = "country")
     private String country;
 
