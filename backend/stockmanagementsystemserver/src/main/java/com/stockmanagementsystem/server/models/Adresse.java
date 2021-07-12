@@ -17,7 +17,6 @@ import java.io.Serializable;
  * @Author Abdelaaziz Ouakala
  **/
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable

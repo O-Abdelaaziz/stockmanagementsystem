@@ -14,7 +14,6 @@ import javax.persistence.*;
  **/
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
