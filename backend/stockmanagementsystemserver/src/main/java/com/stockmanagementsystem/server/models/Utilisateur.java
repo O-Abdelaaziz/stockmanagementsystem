@@ -1,11 +1,13 @@
 package com.stockmanagementsystem.server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stockmanagementsystem.server.models.common.AbstractEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @Created 12/07/2021 - 09:09
@@ -29,7 +31,7 @@ public class Utilisateur extends AbstractEntity {
 
     @Column(name = "email")
     private String email;
-    
+
     @Column(name = "mote_de_passe")
     private String moteDePasse;
 
@@ -42,4 +44,7 @@ public class Utilisateur extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
+    private List<Roles> roles;
 }
