@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * @Created 12/07/2021 - 09:06
@@ -24,4 +25,10 @@ public class LigneVente extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "ventes_id")
     private Ventes ventes;
+
+    @Column(name = "quantite")
+    private BigDecimal quantite;
+
+    @Column(name = "prix_unitaire")
+    private BigDecimal prixUnitaire;
 }
