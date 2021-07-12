@@ -1,5 +1,7 @@
 package com.stockmanagementsystem.server.models;
 
+import com.stockmanagementsystem.server.models.common.AbstractEntity;
+
 /**
  * @Created 12/07/2021 - 09:08
  * @Package com.stockmanagementsystem.server.models
@@ -7,5 +9,5 @@ package com.stockmanagementsystem.server.models;
  * @User LegendDZ
  * @Author Abdelaaziz Ouakala
  **/
-public class MouvementDeStock {
+public class MouvementDeStock extends AbstractEntity {
 }
