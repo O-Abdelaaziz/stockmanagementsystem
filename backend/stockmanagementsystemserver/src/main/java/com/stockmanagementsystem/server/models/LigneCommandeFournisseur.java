@@ -26,6 +26,6 @@ public class LigneCommandeFournisseur extends AbstractEntity {
     private Article article;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name = "commande_client_id")
+    @JoinColumn(name = "commande_fournisseur_id")
     private CommandeFournisseur commandeFournisseur;
 }

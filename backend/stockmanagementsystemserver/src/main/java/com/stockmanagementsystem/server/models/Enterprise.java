@@ -21,4 +21,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "enterprises",schema = "public")
 public class Enterprise extends AbstractEntity {
+
+    private String nom;
 }
