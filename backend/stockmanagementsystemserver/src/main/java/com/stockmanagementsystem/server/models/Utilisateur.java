@@ -1,6 +1,5 @@
 package com.stockmanagementsystem.server.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stockmanagementsystem.server.models.common.AbstractEntity;
 import lombok.*;
 
