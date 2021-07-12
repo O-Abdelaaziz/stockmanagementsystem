@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Created 12/07/2021 - 09:04
@@ -34,4 +35,7 @@ public class CommandeFournisseur extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "fournisseur_id")
     private Fournisseur fournisseur;
+
+    @OneToMany(mappedBy = "commandeFournisseur",fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<LigneCommandeFournisseur> ligneCommandeFournisseurList;
 }

@@ -39,4 +39,7 @@ public class Fournisseur extends AbstractEntity {
 
     @OneToMany(mappedBy = "fournisseur",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<CommandeFournisseur> commandeFournisseurList;
+
+    @OneToMany(mappedBy = "article",fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<LigneCommandeFournisseur> ligneCommandeFournisseurList;
 }

@@ -35,4 +35,7 @@ public class CommandeClient extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id")
     private Client client;
+
+    @OneToMany(mappedBy = "commandeClient",fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<LigneCommandeClient> ligneCommandeClientList;
 }
