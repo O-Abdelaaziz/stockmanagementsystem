@@ -1,5 +1,6 @@
 package com.stockmanagementsystem.server.dto;
 
+import com.stockmanagementsystem.server.models.CommandeClient;
 import lombok.Builder;
 import lombok.Data;
 
@@ -21,4 +22,29 @@ public class CommandeClientDto {
     private Date dateCommande;
     private ClientDto clientDto;
     private List<LigneCommandeClientDto> ligneCommandeClientDtoList;
+
+    public static CommandeClientDto fromEntity(CommandeClient commandeClient) {
+        if (commandeClient == null) {
+            return null;
+        }
+        return CommandeClientDto.builder()
+                .id(commandeClient.getId())
+                .code(commandeClient.getCode())
+                .dateCommande(commandeClient.getDateCommande())
+                .clientDto(ClientDto.fromEntity(commandeClient.getClient()))
+                .build();
+
+    }
+
+    public static CommandeClient toEntity(CommandeClientDto commandeClientDto) {
+        if (commandeClientDto == null) {
+            return null;
+        }
+        CommandeClient commandeClient = new CommandeClient();
+        commandeClient.setId(commandeClientDto.getId());
+        commandeClient.setCode(commandeClientDto.getCode());
+        commandeClient.setClient(ClientDto.toEntity(commandeClientDto.getClientDto()));
+        commandeClient.setDateCommande(commandeClientDto.getDateCommande());
+        return commandeClient;
+    }
 }
