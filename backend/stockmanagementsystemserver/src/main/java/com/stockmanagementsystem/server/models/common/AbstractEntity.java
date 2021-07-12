@@ -1,4 +1,4 @@
-package com.stockmanagementsystem.server.models;
+package com.stockmanagementsystem.server.models.common;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.Date;
 
 /**
  * @Created 12/07/2021 - 08:49
- * @Package com.stockmanagementsystem.server.models
+ * @Package com.stockmanagementsystem.server.models.common
  * @Project stockmanagementsystemserver
  * @User LegendDZ
  * @Author Abdelaaziz Ouakala
