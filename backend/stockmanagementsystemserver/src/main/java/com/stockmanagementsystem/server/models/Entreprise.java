@@ -42,6 +42,6 @@ public class Entreprise extends AbstractEntity {
     @Column(name = "site_web")
     private String siteWeb;
 
-    @OneToMany(mappedBy = "enterprise",fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "entreprise",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Utilisateur> utilisateurList;
 }
