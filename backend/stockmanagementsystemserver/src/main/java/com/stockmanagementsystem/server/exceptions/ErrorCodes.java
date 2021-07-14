@@ -70,7 +70,7 @@ public enum ErrorCodes {
 
     // Liste des exception techniaues
     UPDATE_PHOTO_EXCEPTION(14000),
-    UNKNOWN_CONTEXT(14001)
+    UNKNOWN_CONTEXT(14001);
 
 
     private int code;
