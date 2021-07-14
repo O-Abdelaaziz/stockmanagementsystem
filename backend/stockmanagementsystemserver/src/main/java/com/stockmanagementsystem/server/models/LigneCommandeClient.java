@@ -27,6 +27,9 @@ public class LigneCommandeClient extends AbstractEntity {
     @Column(name = "prix_unitaire")
     private BigDecimal prixUnitaire;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "article_id")
     private Article article;

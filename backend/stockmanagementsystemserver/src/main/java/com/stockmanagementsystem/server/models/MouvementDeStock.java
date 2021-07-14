@@ -33,6 +33,9 @@ public class MouvementDeStock extends AbstractEntity {
     @Column(name = "type_mvt_stock")
     private MvtStockEnum typeMvtStock;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "article_id")
     private Article article;

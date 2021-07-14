@@ -40,6 +40,9 @@ public class Article extends AbstractEntity {
     @Column(name = "photo")
     private String photo;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;

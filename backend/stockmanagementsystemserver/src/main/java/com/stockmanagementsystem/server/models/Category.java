@@ -27,6 +27,9 @@ public class Category extends AbstractEntity {
     @Column(name = "designation")
     private String designation;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @OneToMany(mappedBy = "category",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Article> articleList;
 }

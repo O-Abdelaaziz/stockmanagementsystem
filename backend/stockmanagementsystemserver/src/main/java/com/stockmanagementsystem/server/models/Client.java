@@ -36,6 +36,9 @@ public class Client extends AbstractEntity {
     @Embedded
     private Adresse address;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<CommandeClient> commandeClientList;
 }

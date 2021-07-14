@@ -27,6 +27,9 @@ public class LigneVente extends AbstractEntity {
     @Column(name = "prix_unitaire")
     private BigDecimal prixUnitaire;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "ventes_id")
     private Ventes ventes;

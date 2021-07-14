@@ -36,6 +36,9 @@ public class Fournisseur extends AbstractEntity {
     @Embedded
     private Adresse address;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @OneToMany(mappedBy = "fournisseur",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<CommandeFournisseur> commandeFournisseurList;
 }

@@ -31,6 +31,9 @@ public class CommandeClient extends AbstractEntity {
     @Column(name ="date_commande")
     private Date dateCommande;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id")
     private Client client;

@@ -31,6 +31,9 @@ public class Ventes extends AbstractEntity {
     @Column(name = "commentaire")
     private String commentaire;
 
+    @Column(name = "entreprise_id")
+    private Long entrepriseId;
+
     @OneToMany(mappedBy = "ventes",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<LigneVente> ligneVenteList;
 }
