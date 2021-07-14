@@ -3,6 +3,7 @@ package com.stockmanagementsystem.server.validators;
 import com.stockmanagementsystem.server.dto.LigneCommandeClientDto;
 import org.springframework.util.StringUtils;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class LigneCommandeClientValidator {
             return errors;
         }
 
-        if (ligneCommandeClientDto.getQuantite()==null) {
+        if (ligneCommandeClientDto.getQuantite()==null || ligneCommandeClientDto.getQuantite().compareTo(BigDecimal.ZERO) == 0) {
             errors.add("Veuillez renseigner la quantite");
         }
         if (ligneCommandeClientDto.getPrixUnitaire()==null) {

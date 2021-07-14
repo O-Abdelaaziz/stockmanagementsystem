@@ -2,6 +2,7 @@ package com.stockmanagementsystem.server.validators;
 
 import com.stockmanagementsystem.server.dto.LigneCommandeFournisseurDto;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class LigneCommandeFournisseurValidator {
             return errors;
         }
 
-        if (ligneCommandeFournisseurDto.getQuantite()==null) {
+        if (ligneCommandeFournisseurDto.getQuantite()==null || ligneCommandeFournisseurDto.getQuantite().compareTo(BigDecimal.ZERO) == 0) {
             errors.add("Veuillez renseigner la quantite");
         }
         if (ligneCommandeFournisseurDto.getPrixUnitaire()==null) {

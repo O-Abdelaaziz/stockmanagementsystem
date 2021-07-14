@@ -3,6 +3,7 @@ package com.stockmanagementsystem.server.validators;
 import com.stockmanagementsystem.server.dto.LigneVenteDto;
 import com.stockmanagementsystem.server.models.Ventes;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class LigneVenteValidator {
             return errors;
         }
 
-        if (ligneVenteDto.getQuantite()==null) {
+        if (ligneVenteDto.getQuantite()==null || ligneVenteDto.getQuantite().compareTo(BigDecimal.ZERO) == 0) {
             errors.add("Veuillez renseigner la quantite");
         }
         if (ligneVenteDto.getPrixUnitaire()==null) {
