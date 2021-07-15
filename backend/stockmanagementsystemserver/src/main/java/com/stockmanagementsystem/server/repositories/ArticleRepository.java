@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @Created 14/07/2021 - 13:55
@@ -22,11 +23,13 @@ public interface ArticleRepository extends JpaRepository<Article,Long> {
     List<Article> findByCustomQuery(@Param("code") String code, @Param("designation") String designation);
 
     //Native Query
-    @Query("select * from article where code=:code")
+    @Query(value = "select * from article where code=:code",nativeQuery = true)
     List<Article> findByNativeQuery(@Param("code") String code);
 
     //JPA Query Builder
     List<Article> findByCodeIgnoreCaseAndDesignationIgnoreCase(String code,String designation);
+
+    Optional<Article> findByCode(String code);
 
 
 }
