@@ -75,7 +75,7 @@ public enum ErrorCodes {
 
     private int code;
 
-     ErrorCodes(int code){
+    ErrorCodes(int code){
         this.code=code;
     }
 
