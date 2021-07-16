@@ -1,15 +1,12 @@
 package com.stockmanagementsystem.server.services.impl;
 
-import com.stockmanagementsystem.server.dto.FournisseurDto;
 import com.stockmanagementsystem.server.dto.UtilisateurDto;
 import com.stockmanagementsystem.server.exceptions.EntityNotFoundException;
 import com.stockmanagementsystem.server.exceptions.ErrorCodes;
 import com.stockmanagementsystem.server.exceptions.InvalidEntityException;
-import com.stockmanagementsystem.server.models.Fournisseur;
 import com.stockmanagementsystem.server.models.Utilisateur;
 import com.stockmanagementsystem.server.repositories.UtilisateurRepository;
 import com.stockmanagementsystem.server.services.UtilisateurService;
-import com.stockmanagementsystem.server.validators.FournisseurValidator;
 import com.stockmanagementsystem.server.validators.UtilisateurValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,19 +47,19 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public UtilisateurDto findById(Long id) {
         if(id == null){
-            log.error("-_=> UtilisateurServiceImpl(53) => findById: utilisateur id is null {}",id);
+            log.error("-_=> UtilisateurServiceImpl(55) => findById: utilisateur id is null {}",id);
             return null;
         }
         Optional<Utilisateur> utilisateurOptional=utilisateurRepository.findById(id);
         UtilisateurDto utilisateurDto=UtilisateurDto.fromEntity(utilisateurOptional.get());
-        return Optional.of(utilisateurDto).orElseThrow(()->new EntityNotFoundException("UtilisateurServiceImpl(58) => findById: no utilisateur found with id: "+id, ErrorCodes.FOURNISSEUR_NOT_FOUND));
+        return Optional.of(utilisateurDto).orElseThrow(()->new EntityNotFoundException("UtilisateurServiceImpl(55) => findById: no utilisateur found with id: "+id, ErrorCodes.FOURNISSEUR_NOT_FOUND));
     }
 
     @Override
     public UtilisateurDto save(UtilisateurDto utilisateurDto) {
         List<String> errors = UtilisateurValidator.validate(utilisateurDto);
         if(!errors.isEmpty()){
-            log.error("-_=> UtilisateurServiceImpl(65) => save: utilisateur not valid {}",utilisateurDto);
+            log.error("-_=> UtilisateurServiceImpl(62) => save: utilisateur not valid {}",utilisateurDto);
             throw new InvalidEntityException("utilisateur not valid", ErrorCodes.UTILISATEUR_NOT_FOUND);
         }
         Utilisateur newUtilisateur=utilisateurRepository.save(UtilisateurDto.toEntity(utilisateurDto));
@@ -73,7 +70,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public void delete(Long id) {
         if(id==null){
-            log.error("-_=> UtilisateurServiceImpl(76) => delete: utilisateur id is null {}",id);
+            log.error("-_=> UtilisateurServiceImpl(73) => delete: utilisateur id is null {}",id);
             return;
         }
         UtilisateurDto utilisateurDto=findById(id);

@@ -1,15 +1,12 @@
 package com.stockmanagementsystem.server.services.impl;
 
-import com.stockmanagementsystem.server.dto.ArticleDto;
 import com.stockmanagementsystem.server.dto.ClientDto;
 import com.stockmanagementsystem.server.exceptions.EntityNotFoundException;
 import com.stockmanagementsystem.server.exceptions.ErrorCodes;
 import com.stockmanagementsystem.server.exceptions.InvalidEntityException;
-import com.stockmanagementsystem.server.models.Article;
 import com.stockmanagementsystem.server.models.Client;
 import com.stockmanagementsystem.server.repositories.ClientRepository;
 import com.stockmanagementsystem.server.services.ClientService;
-import com.stockmanagementsystem.server.validators.ArticleValidator;
 import com.stockmanagementsystem.server.validators.ClientValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +39,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ClientDto findById(Long id) {
         if(id == null){
-            log.error("-_=> ClientServiceImpl(45) => findById: client id is null {}",id);
+            log.error("-_=> ClientServiceImpl(42) => findById: client id is null {}",id);
             return null;
         }
         Optional<Client> optionalClient=clientRepository.findById(id);
@@ -54,7 +51,7 @@ public class ClientServiceImpl implements ClientService {
     public ClientDto save(ClientDto clientDto) {
         List<String> errors = ClientValidator.validate(clientDto);
         if(!errors.isEmpty()){
-            log.error("-_=> ClientServiceImpl(57) => save: client not valid {}",clientDto);
+            log.error("-_=> ClientServiceImpl(54) => save: client not valid {}",clientDto);
             throw new InvalidEntityException("client not valid", ErrorCodes.ARTICLE_NOT_VALID);
         }
         Client newClient=clientRepository.save(ClientDto.toEntity(clientDto));
@@ -65,7 +62,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public void delete(Long id) {
         if(id==null){
-            log.error("-_=> ClientServiceImpl(68) => delete: client id is null {}",id);
+            log.error("-_=> ClientServiceImpl(65) => delete: client id is null {}",id);
             return;
         }
         ClientDto clientDto=findById(id);
