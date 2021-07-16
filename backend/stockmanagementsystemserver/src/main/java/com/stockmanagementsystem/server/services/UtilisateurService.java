@@ -14,6 +14,6 @@ import java.util.List;
 public interface UtilisateurService {
     List<UtilisateurDto> findAll();
     UtilisateurDto findById(Long id);
-    UtilisateurDto save(UtilisateurDto dto);
+    UtilisateurDto save(UtilisateurDto utilisateurDto);
     void delete(Long id);
 }
