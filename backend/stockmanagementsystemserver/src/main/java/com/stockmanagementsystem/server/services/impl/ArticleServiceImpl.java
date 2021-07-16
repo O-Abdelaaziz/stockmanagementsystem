@@ -47,7 +47,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ArticleDto findById(Long id) {
         if(id == null){
-            log.error("-_=> ArticleServiceImpl(50) => findById: Article id is null {}",id);
+            log.error("-_=> ArticleServiceImpl(50) => findById: article id is null {}",id);
             return null;
         }
         Optional<Article> articleOptional=articleRepository.findById(id);
@@ -58,7 +58,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public ArticleDto findByCode(String code) {
         if(!StringUtils.hasLength(code)){
-            log.error("-_=> ArticleServiceImpl(61 => findByCode: Article code is null {}",code);
+            log.error("-_=> ArticleServiceImpl(61 => findByCode: article code is null {}",code);
             return null;
         }
         Optional<Article> article=articleRepository.findByCode(code);
@@ -70,8 +70,8 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleDto save(ArticleDto articleDto) {
         List<String> errors = ArticleValidator.validate(articleDto);
         if(!errors.isEmpty()){
-           log.error("-_=> ArticleServiceImpl(73) => save: Article not valid {}",articleDto);
-           throw new InvalidEntityException("Article not valid", ErrorCodes.ARTICLE_NOT_VALID);
+           log.error("-_=> ArticleServiceImpl(73) => save: article not valid {}",articleDto);
+           throw new InvalidEntityException("article not valid", ErrorCodes.ARTICLE_NOT_VALID);
         }
         Article newArticle=articleRepository.save(ArticleDto.toEntity(articleDto));
         ArticleDto newArticleDto=ArticleDto.fromEntity(newArticle);
@@ -86,7 +86,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public void delete(Long id) {
         if(id==null){
-            log.error("-_=> ArticleServiceImpl(89) => delete: Article id is null {}",id);
+            log.error("-_=> ArticleServiceImpl(89) => delete: article id is null {}",id);
             return;
         }
         ArticleDto articleDto=findById(id);

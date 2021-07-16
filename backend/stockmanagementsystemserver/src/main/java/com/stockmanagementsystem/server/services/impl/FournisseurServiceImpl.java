@@ -55,7 +55,7 @@ public class FournisseurServiceImpl implements FournisseurService {
         }
         Optional<Fournisseur> fournisseurOptional=fournisseurRepository.findById(id);
         FournisseurDto fournisseurDto=FournisseurDto.fromEntity(fournisseurOptional.get());
-        return Optional.of(fournisseurDto).orElseThrow(()->new EntityNotFoundException("FournisseurServiceImpl(58) => findById: no entreprise found with id: "+id, ErrorCodes.FOURNISSEUR_NOT_FOUND));
+        return Optional.of(fournisseurDto).orElseThrow(()->new EntityNotFoundException("FournisseurServiceImpl(58) => findById: no fournisseur found with id: "+id, ErrorCodes.FOURNISSEUR_NOT_FOUND));
     }
 
     @Override

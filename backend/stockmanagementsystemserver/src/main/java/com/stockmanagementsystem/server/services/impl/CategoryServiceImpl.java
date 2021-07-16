@@ -40,7 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto findById(Long id) {
         if(id==null){
-            log.error("-_=> CategoryServiceImpl(43) => findById: Article id is null {}",id);
+            log.error("-_=> CategoryServiceImpl(43) => findById: category id is null {}",id);
             return null;
         }
         Optional<Category> category=categoryRepository.findById(id);
@@ -51,7 +51,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto findByCode(String code) {
         if(!StringUtils.hasLength(code)){
-            log.error("-_=> findByCode(54) => findByCode: Article code is null {}",code);
+            log.error("-_=> findByCode(54) => findByCode: category code is null {}",code);
             return null;
         }
         Optional<Category> category=categoryRepository.findByCode(code);
