@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ClientService {
     List<ClientDto> findAll();
-    ClientDto findById(Integer id);
-    ClientDto save(ClientDto dto);
-    void delete(Integer id);
+    ClientDto findById(Long id);
+    ClientDto save(ClientDto clientDto);
+    void delete(Long id);
 }
