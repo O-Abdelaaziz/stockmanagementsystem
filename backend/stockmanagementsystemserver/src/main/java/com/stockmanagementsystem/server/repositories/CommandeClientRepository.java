@@ -4,6 +4,8 @@ import com.stockmanagementsystem.server.models.CommandeClient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * @Created 15/07/2021 - 08:23
  * @Package com.stockmanagementsystem.server.repositories
@@ -13,4 +15,5 @@ import org.springframework.stereotype.Repository;
  **/
 @Repository
 public interface CommandeClientRepository extends JpaRepository<CommandeClient,Long> {
+    Optional<CommandeClient> findByCode(String code);
 }
