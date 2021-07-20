@@ -54,5 +54,8 @@ public class Article extends AbstractEntity {
     private List<LigneCommandeFournisseur> ligneCommandeFournisseurList;
 
     @OneToMany(mappedBy = "article",fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<LigneVente> ventes;
+
+    @OneToMany(mappedBy = "article",fetch = FetchType.LAZY,orphanRemoval = true)
     private List<MouvementDeStock> mouvementDeStockList;
 }

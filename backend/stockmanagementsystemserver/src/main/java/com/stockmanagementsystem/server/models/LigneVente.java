@@ -33,4 +33,8 @@ public class LigneVente extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "ventes_id")
     private Ventes ventes;
+
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "article_id")
+    private Article article;
 }

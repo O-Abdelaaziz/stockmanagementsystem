@@ -22,8 +22,6 @@ public class VentesDto {
     private String code;
     private Date dateVente;
     private String commentaire;
-
-    @JsonIgnore
     private List<LigneVenteDto> ligneVenteDtoList;
 
     public static VentesDto fromEntity(Ventes vente) {
