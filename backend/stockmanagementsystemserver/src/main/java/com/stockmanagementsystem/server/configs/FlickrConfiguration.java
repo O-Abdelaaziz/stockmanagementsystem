@@ -24,7 +24,7 @@ import java.util.concurrent.ExecutionException;
  * @User LegendDZ
  * @Author Abdelaaziz Ouakala
  **/
-@Configuration
+//@Configuration
 public class FlickrConfiguration {
 
     @Value("${flickr.api.key}")
