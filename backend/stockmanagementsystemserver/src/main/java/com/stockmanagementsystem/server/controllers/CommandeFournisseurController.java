@@ -45,7 +45,7 @@ public class CommandeFournisseurController implements CommandeFournisseurApi {
 
     @Override
     public ResponseEntity<CommandeFournisseurDto> save(CommandeFournisseurDto commandeClientDto) {
-        return new ResponseEntity<>(commandeFournisseurService.save(commandeClientDto), HttpStatus.CREATED);;
+        return new ResponseEntity<>(commandeFournisseurService.save(commandeClientDto), HttpStatus.CREATED);
     }
 
     @Override
