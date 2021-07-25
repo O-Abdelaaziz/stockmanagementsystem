@@ -31,7 +31,7 @@ public interface ArticleApi {
             @ApiResponse(code = 404, message = "Aucun article n'existe dans la BDD avec l'ID fourni")
     })
     @GetMapping(value = APP_ROOT +ARTICLES +ARTICLE_PATH_ID, produces = MediaType.APPLICATION_JSON_VALUE)
-    ArticleDto findById(@PathVariable(ARTICLE_PATH_VARIABLE_ID) Integer id);
+    ArticleDto findById(@PathVariable(ARTICLE_PATH_VARIABLE_ID) Long id);
 
     @ApiOperation(value = "Rechercher un article par CODE", notes = "Cette methode permet de chercher un article par son CODE", response =
             ArticleDto.class)
@@ -55,5 +55,5 @@ public interface ArticleApi {
             @ApiResponse(code = 200, message = "L'article a ete supprime")
     })
     @DeleteMapping(value = APP_ROOT +ARTICLES +ARTICLE_PATH_ID)
-    void delete(@PathVariable(ARTICLE_PATH_VARIABLE_ID) Integer id);
+    void delete(@PathVariable(ARTICLE_PATH_VARIABLE_ID) Long id);
 }

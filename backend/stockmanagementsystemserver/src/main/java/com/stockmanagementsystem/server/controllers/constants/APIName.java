@@ -14,4 +14,10 @@ public class APIName {
     public static final String ARTICLE_PATH_VARIABLE_CODE ="code";
     public static final String ARTICLE_PATH_ID ="/{id}";
     public static final String ARTICLE_PATH_CODE ="/{code}";
+
+    public static final String CATEGORY="/categories";
+    public static final String CATEGORY_PATH_VARIABLE_ID ="id";
+    public static final String CATEGORY_PATH_VARIABLE_CODE ="code";
+    public static final String CATEGORY_PATH_ID ="/{id}";
+    public static final String CATEGORY_PATH_CODE ="/{code}";
 }
