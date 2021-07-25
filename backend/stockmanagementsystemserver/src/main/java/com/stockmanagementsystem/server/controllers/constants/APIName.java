@@ -20,4 +20,10 @@ public class APIName {
     public static final String CATEGORY_PATH_VARIABLE_CODE ="code";
     public static final String CATEGORY_PATH_ID ="/{id}";
     public static final String CATEGORY_PATH_CODE ="/{code}";
+
+    public static final String CLIENT="/clients";
+    public static final String CLIENT_PATH_VARIABLE_ID ="id";
+    public static final String CLIENT_PATH_VARIABLE_CODE ="code";
+    public static final String CLIENT_PATH_ID ="/{id}";
+    public static final String CLIENT_PATH_CODE ="/{code}";
 }
