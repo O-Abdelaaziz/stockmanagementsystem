@@ -26,4 +26,10 @@ public class APIName {
     public static final String CLIENT_PATH_VARIABLE_CODE ="code";
     public static final String CLIENT_PATH_ID ="/{id}";
     public static final String CLIENT_PATH_CODE ="/{code}";
+
+    public static final String COMMANDE_CLIENT="/commandeclients";
+    public static final String COMMANDE_CLIENT_PATH_VARIABLE_ID ="id";
+    public static final String COMMANDE_CLIENT_PATH_VARIABLE_CODE ="code";
+    public static final String COMMANDE_CLIENT_PATH_ID ="/{id}";
+    public static final String COMMANDE_CLIENT_PATH_CODE ="/{code}";
 }
