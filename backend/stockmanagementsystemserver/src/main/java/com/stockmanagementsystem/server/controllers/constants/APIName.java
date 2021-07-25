@@ -51,4 +51,11 @@ public class APIName {
     public static final String ENTREPRISE_PATH_VARIABLE_CODE ="code";
     public static final String ENTREPRISE_PATH_ID ="/{id}";
     public static final String ENTREPRISE_PATH_CODE ="/{code}";
+
+
+    public static final String VENTES="/ventes";
+    public static final String VENTES_PATH_VARIABLE_ID ="id";
+    public static final String VENTES_PATH_VARIABLE_CODE ="code";
+    public static final String VENTES_PATH_ID ="/{id}";
+    public static final String VENTES_PATH_CODE ="/{code}";
 }
