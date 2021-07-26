@@ -23,6 +23,7 @@ public class ArticleDto {
     private BigDecimal tauxTva;
     private String photo;
     private CategoryDto categoryDto;
+    private Long entrepriseId;
 
     public static ArticleDto fromEntity(Article article){
         if(article==null){
@@ -37,7 +38,9 @@ public class ArticleDto {
                 .prixUnitaireTtc(article.getPrixUnitaireTtc())
                 .tauxTva(article.getTauxTva())
                 .photo(article.getPhoto())
-                .categoryDto(CategoryDto.fromEntity(article.getCategory())).build();
+                .categoryDto(CategoryDto.fromEntity(article.getCategory()))
+                .entrepriseId(article.getEntrepriseId())
+                .build();
     }
 
     public static Article toEntity(ArticleDto articleDto){
@@ -54,6 +57,7 @@ public class ArticleDto {
         article.setTauxTva(articleDto.getTauxTva());
         article.setPhoto(articleDto.getPhoto());
         article.setCategory(CategoryDto.toEntity(articleDto.getCategoryDto()));
+        article.setEntrepriseId(articleDto.getEntrepriseId());
 
         return article;
     }

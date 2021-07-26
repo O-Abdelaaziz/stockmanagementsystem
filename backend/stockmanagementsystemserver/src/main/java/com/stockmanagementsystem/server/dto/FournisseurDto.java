@@ -23,6 +23,7 @@ public class FournisseurDto {
     private String mail;
     private AdresseDto addressDto;
     private List<CommandeFournisseurDto> commandeFournisseurDtoList;
+    private Long entrepriseId;
 
     public static FournisseurDto fromEntity(Fournisseur fournisseur) {
         if (fournisseur == null) {
@@ -35,6 +36,7 @@ public class FournisseurDto {
                 .addressDto(AdresseDto.fromEntity(fournisseur.getAddress()))
                 .photo(fournisseur.getPhoto())
                 .mail(fournisseur.getMail())
+                .entrepriseId(fournisseur.getEntrepriseId())
                 .build();
     }
 
@@ -49,6 +51,7 @@ public class FournisseurDto {
         fournisseur.setAddress(AdresseDto.toEntity(fournisseurDto.getAddressDto()));
         fournisseur.setPhoto(fournisseurDto.getPhoto());
         fournisseur.setMail(fournisseurDto.getMail());
+        fournisseur.setEntrepriseId(fournisseurDto.getEntrepriseId());
 
         return fournisseur;
     }

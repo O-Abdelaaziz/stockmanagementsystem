@@ -5,6 +5,7 @@ import com.stockmanagementsystem.server.models.Ventes;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class VentesDto {
     private Date dateVente;
     private String commentaire;
     private List<LigneVenteDto> ligneVenteDtoList;
+    private Long entrepriseId;
 
     public static VentesDto fromEntity(Ventes vente) {
         if (vente == null) {
@@ -32,6 +34,7 @@ public class VentesDto {
                 .id(vente.getId())
                 .code(vente.getCode())
                 .commentaire(vente.getCommentaire())
+                .entrepriseId(vente.getEntrepriseId())
                 .build();
     }
 
@@ -43,6 +46,7 @@ public class VentesDto {
         ventes.setId(ventesDto.getId());
         ventes.setCode(ventes.getCode());
         ventes.setCommentaire(ventesDto.getCommentaire());
+        ventes.setEntrepriseId(ventesDto.getEntrepriseId());
         return ventes;
     }
 }

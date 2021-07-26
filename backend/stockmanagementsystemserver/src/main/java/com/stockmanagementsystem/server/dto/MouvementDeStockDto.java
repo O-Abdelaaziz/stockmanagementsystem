@@ -23,6 +23,7 @@ public class MouvementDeStockDto {
     private BigDecimal quantite;
     private MvtStockEnum typeMvtStock;
     private ArticleDto article;
+    private Long entrepriseId;
 
     public static MouvementDeStockDto fromEntity(MouvementDeStock mouvementDeStock) {
         if (mouvementDeStock == null) {
@@ -35,6 +36,7 @@ public class MouvementDeStockDto {
                 .quantite(mouvementDeStock.getQuantite())
                 .article(ArticleDto.fromEntity(mouvementDeStock.getArticle()))
                 .typeMvtStock(mouvementDeStock.getTypeMvtStock())
+                .entrepriseId(mouvementDeStock.getEntrepriseId())
                 .build();
     }
 
@@ -49,6 +51,7 @@ public class MouvementDeStockDto {
         mvtStk.setQuantite(dto.getQuantite());
         mvtStk.setArticle(ArticleDto.toEntity(dto.getArticle()));
         mvtStk.setTypeMvtStock(dto.getTypeMvtStock());
+        mvtStk.setEntrepriseId(dto.getEntrepriseId());
         return mvtStk;
     }
 }

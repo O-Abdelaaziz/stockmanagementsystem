@@ -22,6 +22,7 @@ public class CategoryDto {
     private String designation;
     @JsonIgnore
     private List<ArticleDto> articleDtoList;
+    private Long entrepriseId;
 
     public static CategoryDto fromEntity(Category category){
         if(category == null){
@@ -32,6 +33,7 @@ public class CategoryDto {
                 .id(category.getId())
                 .code(category.getCode())
                 .designation(category.getDesignation())
+                .entrepriseId(category.getEntrepriseId())
                 .build();
     }
 
@@ -44,6 +46,7 @@ public class CategoryDto {
         category.setId(categoryDto.getId());
         category.setCode(categoryDto.getCode());
         category.setDesignation(categoryDto.getDesignation());
+        category.setEntrepriseId(categoryDto.getEntrepriseId());
 
         return category;
     }
