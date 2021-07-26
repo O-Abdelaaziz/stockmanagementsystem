@@ -9,6 +9,9 @@ package com.stockmanagementsystem.server.controllers.constants;
  **/
 public class APIName {
     public static final String APP_ROOT = "gestiondestock/v1";
+
+    public static final String AUTHENTICATE=APP_ROOT+"/authenticate";
+
     public static final String ARTICLES="/articles";
     public static final String ARTICLE_PATH_VARIABLE_ID ="id";
     public static final String ARTICLE_PATH_VARIABLE_CODE ="code";
