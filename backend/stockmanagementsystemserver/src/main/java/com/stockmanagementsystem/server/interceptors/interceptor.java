@@ -17,9 +17,9 @@ public class interceptor extends EmptyInterceptor {
     public String onPrepareStatement(String sql) {
         if(StringUtils.hasLength(sql) && sql.toLowerCase().startsWith("select")){
             if(sql.contains("where")){
-                sql= sql + "and entrepriseId = 2";
+                sql= sql + " and entreprise_id = 1";
             }else{
-                sql= sql + "where entrepriseId = 2";
+                sql= sql + " where entreprise_id = 1";
             }
 
         }
