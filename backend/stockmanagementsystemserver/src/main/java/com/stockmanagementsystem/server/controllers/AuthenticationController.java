@@ -2,7 +2,9 @@ package com.stockmanagementsystem.server.controllers;
 
 import com.stockmanagementsystem.server.dto.auth.AuthenticationRequest;
 import com.stockmanagementsystem.server.dto.auth.AuthenticationResponse;
+import com.stockmanagementsystem.server.models.auth.ExtendedUser;
 import com.stockmanagementsystem.server.services.auth.CustomUserDetailsService;
+import com.stockmanagementsystem.server.utilis.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,11 +30,13 @@ public class AuthenticationController {
 
     private AuthenticationManager authenticationManager;
     private CustomUserDetailsService customUserDetailsService;
+    private JwtUtils jwtUtils;
 
     @Autowired
-    public AuthenticationController(AuthenticationManager authenticationManager,CustomUserDetailsService customUserDetailsService) {
+    public AuthenticationController(AuthenticationManager authenticationManager,CustomUserDetailsService customUserDetailsService,JwtUtils jwtUtils) {
         this.authenticationManager = authenticationManager;
         this.customUserDetailsService=customUserDetailsService;
+        this.jwtUtils=jwtUtils;
     }
 
     @PostMapping("/login")
@@ -42,7 +46,8 @@ public class AuthenticationController {
         );
 
         final UserDetails userDetails=customUserDetailsService.loadUserByUsername(request.getEmail());
+        final String jwt=jwtUtils.generateToken((ExtendedUser) userDetails);
 
-        return  ResponseEntity.ok(AuthenticationResponse.builder().accessToken("default_access_token").build());
+        return  ResponseEntity.ok(AuthenticationResponse.builder().accessToken(jwt).build());
     }
 }
